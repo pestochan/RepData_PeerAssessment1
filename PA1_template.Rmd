@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r load-packages, echo=FALSE}
+```{r load-packages, echo=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
 library(knitr)
 library(lubridate)
@@ -43,7 +43,7 @@ head(totalsteps)
 ```
 
 2. Create a histogram of the total steps taken each day. 
-```{r}
+```{r histogram1}
 hist(totalsteps$total_step)
 ```
 
@@ -60,7 +60,7 @@ The mean of the total number of steps taken per day is `r round(mean_total_steps
 
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-```{r}
+```{r timeseries1}
 # calculate average steps each interval. 
 averagesteps <- group_by(activity, interval) %>%
                 summarise(average_step = mean(steps, na.rm = TRUE),.groups = 'drop')
@@ -122,7 +122,7 @@ head(activity_new)
 
 4. Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-```{r}
+```{r histogram2}
 totalsteps_new <- group_by(activity_new, date) %>%
               summarise(total_step = sum(steps, na.rm = TRUE),.groups = 'drop')
 hist(totalsteps_new$total_step)
@@ -161,7 +161,7 @@ activity_new$weekday <- as.factor(activity_new$weekday)
 
 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-```{r}
+```{r timeseries2}
 
 averagesteps_new <- group_by(activity_new, weekday, interval) %>%
                     summarise(average_step = mean(steps))

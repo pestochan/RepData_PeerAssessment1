@@ -8,41 +8,6 @@ editor_options:
 ---
 
 
-```
-## Warning: package 'dplyr' was built under R version 3.6.2
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```
-## Warning: package 'lubridate' was built under R version 3.6.2
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     date, intersect, setdiff, union
-```
 
 ## Loading and preprocessing the data
 
@@ -91,7 +56,7 @@ head(totalsteps)
 hist(totalsteps$total_step)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](PA1_template_files/figure-html/histogram1-1.png)<!-- -->
 
 3. Calculate the mean and median of the total number of steps taken per day. 
 
@@ -121,7 +86,7 @@ plot(averagesteps$interval, averagesteps$average_step,
      main = "Average number of steps taken in each 5-min interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/timeseries1-1.png)<!-- -->
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -206,7 +171,7 @@ totalsteps_new <- group_by(activity_new, date) %>%
 hist(totalsteps_new$total_step)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](PA1_template_files/figure-html/histogram2-1.png)<!-- -->
 
 ```r
 mean_total_steps_new <- mean(totalsteps_new$total_step)
@@ -261,7 +226,7 @@ xyplot(average_step ~ interval | weekday,
        ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](PA1_template_files/figure-html/timeseries2-1.png)<!-- -->
 
 
 
